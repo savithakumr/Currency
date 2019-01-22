@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "0727ece5-5616-41c4-b690-00a00ca8cb22",
+		"name": "Currency",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Banana Budget : First 7 days of the month",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0257f77e-ab62-4c6d-b631-41143f591035",
+						"exec": [
+							"// Price for First week of the month is 0.05 ",
+							"//Price is same for 5 or 7 days as Bob doesn't work on weekends(he buys only on the way to work)",
+							"",
+							"pm.test(\"Price for First week of the month \", function () {",
+							"    pm.response.to.have.body('{\"totalCost\":\"$0.25\"}');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://bananabudget.azurewebsites.net/?startDate=12-03-2018&numberOfDays=7",
+					"protocol": "https",
+					"host": [
+						"bananabudget",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "12-03-2018"
+						},
+						{
+							"key": "numberOfDays",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Banana Budget: Second 7 days of the month",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eb2b4dd4-44eb-4a56-bae8-6f32f20c73ee",
+						"exec": [
+							"",
+							"// Price for Second week of the month is 0.10",
+							"//Price is same for 5 or 7 days as Bob doesn't work on weekends(he buys only on the way to work)",
+							"",
+							"pm.test(\"Price for Second week of the month\", function () {",
+							"   pm.response.to.have.body('{\"totalCost\":\"$0.50\"}');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://bananabudget.azurewebsites.net/?startDate=12-10-2018&numberOfDays=5.  ",
+					"protocol": "https",
+					"host": [
+						"bananabudget",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "12-10-2018"
+						},
+						{
+							"key": "numberOfDays",
+							"value": "5.  "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Banana Budget: Third  7 days of the month",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0257f77e-ab62-4c6d-b631-41143f591035",
+						"exec": [
+							"",
+							"// Price for Third week of the month is 0.15 ",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Price for Third week\", function () {",
+							"   pm.response.to.have.body('{\"totalCost\":\"$0.75\"}');",
+							"});",
+							"",
+							"//Price is same for 5 or 7 days as Bob doesn't work on weekends(he buys only on the way to work)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://bananabudget.azurewebsites.net/?startDate=12-17-2018&numberOfDays=5.  ",
+					"protocol": "https",
+					"host": [
+						"bananabudget",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "12-17-2018"
+						},
+						{
+							"key": "numberOfDays",
+							"value": "5.  "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Banana Budget :Fourth 7 days of the month",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0257f77e-ab62-4c6d-b631-41143f591035",
+						"exec": [
+							"",
+							"// Price for Fourth week of the month is 0.20 ",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Price for Forth week\", function () {",
+							"   pm.response.to.have.body('{\"totalCost\":\"$1.00\"}');",
+							"});",
+							"",
+							"//Price is same for 5 or 7 days as Bob doesn't work on weekends(he buys only on the way to work)"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://bananabudget.azurewebsites.net/?startDate=12-24-2018&numberOfDays=5 ",
+					"protocol": "https",
+					"host": [
+						"bananabudget",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "12-24-2018"
+						},
+						{
+							"key": "numberOfDays",
+							"value": "5 "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Banana Budget after Fifth week of the month",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c891b189-e74a-41fa-bbd2-f2e78149384f",
+						"exec": [
+							"",
+							"",
+							"",
+							"//Price is 0.25 for the fifth week of the month",
+							"pm.test(\"Price after fourth week\", function () {",
+							"    pm.response.to.have.body('{\"totalCost\":\"$0.25\"}');",
+							"});",
+							"",
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://bananabudget.azurewebsites.net/?startDate=12-31-2018&numberOfDays=1.  ",
+					"protocol": "https",
+					"host": [
+						"bananabudget",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "12-31-2018"
+						},
+						{
+							"key": "numberOfDays",
+							"value": "1.  "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Banana Budget for 365 days ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0257f77e-ab62-4c6d-b631-41143f591035",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body is correct\", function () {",
+							"   pm.response.to.have.body('{\"totalCost\":\"$35.15\"}');",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://bananabudget.azurewebsites.net/?startDate=01-14-2018&numberOfDays=365.  ",
+					"protocol": "https",
+					"host": [
+						"bananabudget",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "01-14-2018"
+						},
+						{
+							"key": "numberOfDays",
+							"value": "365.  "
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Banana Budget for 30 days ",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "0257f77e-ab62-4c6d-b631-41143f591035",
+						"exec": [
+							"",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"pm.test(\"Body is correct\", function () {",
+							"   pm.response.to.have.body('{\"totalCost\":\"$3.00\"}');",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "https://bananabudget.azurewebsites.net/?startDate=10-12-2017&numberOfDays=30.  ",
+					"protocol": "https",
+					"host": [
+						"bananabudget",
+						"azurewebsites",
+						"net"
+					],
+					"path": [
+						""
+					],
+					"query": [
+						{
+							"key": "startDate",
+							"value": "10-12-2017"
+						},
+						{
+							"key": "numberOfDays",
+							"value": "30.  "
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
